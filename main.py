@@ -13,8 +13,12 @@ while True:
 
     if choice == "1":
         task = input("Enter task: ")
-        tasks.append(task)
-        print("Task added successfully!")
+
+        if task.strip() == "":
+            print("Error: Task title cannot be empty!")
+        else:
+            tasks.append(task)
+            print("Task added successfully!")
 
     elif choice == "2":
         if len(tasks) == 0:

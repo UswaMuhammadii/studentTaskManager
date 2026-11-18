@@ -14,10 +14,10 @@ while True:
     if choice == "1":
         task = input("Enter task: ").strip()
 
-        if task.strip() == "":
+        if task == "":
             print("Error: Task title cannot be empty!")
         else:
-            tasks.append(task)
+            tasks.append({"title": task, "completed": False})
             print("Task added successfully!")
 
     elif choice == "2":
@@ -25,7 +25,8 @@ while True:
             print("No tasks available.")
         else:
             for i in range(len(tasks)):
-                print(f"{i + 1}. {tasks[i]}")
+                status = "Completed" if tasks[i]["completed"] else "Pending"
+                print(f"{i + 1}. {tasks[i]['title']} - {status}")
 
     elif choice == "3":
         print("Goodbye!")

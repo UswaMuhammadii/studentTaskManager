@@ -28,3 +28,4 @@ A simple Python console application for managing student tasks.
 
 Initial development.
 
+Project status: Planning

@@ -57,14 +57,24 @@ while True:
             print("No tasks available.")
         else:
             for i in range(len(tasks)):
-                print(f"{i + 1}. {tasks[i]['title']}")
+                status = "Completed" if tasks[i]["completed"] else "Pending"
+                print(f"{i + 1}. {tasks[i]['title']} - {status}")
 
             try:
                 task_id = int(input("Enter task number to delete: "))
 
                 if 1 <= task_id <= len(tasks):
-                    deleted_task = tasks.pop(task_id - 1)
-                    print(f"Task '{deleted_task['title']}' deleted successfully!")
+                    confirm = input(
+                        f"Delete '{tasks[task_id - 1]['title']}'? (y/n): "
+                    ).strip().lower()
+
+                    if confirm == "y":
+                        deleted_task = tasks.pop(task_id - 1)
+                        print(
+                            f"Task '{deleted_task['title']}' deleted successfully!"
+                        )
+                    else:
+                        print("Task deletion cancelled.")
                 else:
                     print("Invalid task number!")
 

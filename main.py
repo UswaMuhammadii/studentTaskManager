@@ -12,7 +12,7 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == "1":
-        task = input("Enter task: ")
+        task = input("Enter task: ").strip()
 
         if task.strip() == "":
             print("Error: Task title cannot be empty!")

@@ -7,7 +7,8 @@ while True:
     print("\n===== STUDENT TASK MANAGER =====")
     print("1. Add Task")
     print("2. View Tasks")
-    print("3. Exit")
+    print("3. Complete Task")
+    print("4. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -29,6 +30,25 @@ while True:
                 print(f"{i + 1}. {tasks[i]['title']} - {status}")
 
     elif choice == "3":
+        if len(tasks) == 0:
+            print("No tasks available.")
+        else:
+            for i in range(len(tasks)):
+                print(f"{i + 1}. {tasks[i]['title']}")
+
+            try:
+                task_id = int(input("Enter task number to complete: "))
+
+                if 1 <= task_id <= len(tasks):
+                    tasks[task_id - 1]["completed"] = True
+                    print("Task marked as completed!")
+                else:
+                    print("Invalid task number!")
+
+            except ValueError:
+                print("Please enter a valid number!")
+
+    elif choice == "4":
         print("Goodbye!")
         break
 

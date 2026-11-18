@@ -40,8 +40,11 @@ while True:
                 task_id = int(input("Enter task number to complete: "))
 
                 if 1 <= task_id <= len(tasks):
-                    tasks[task_id - 1]["completed"] = True
-                    print("Task marked as completed!")
+                    if tasks[task_id - 1]["completed"]:
+                        print("Task is already completed!")
+                    else:
+                        tasks[task_id - 1]["completed"] = True
+                        print("Task marked as completed!")
                 else:
                     print("Invalid task number!")
 

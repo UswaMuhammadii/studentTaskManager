@@ -8,7 +8,8 @@ while True:
     print("1. Add Task")
     print("2. View Tasks")
     print("3. Complete Task")
-    print("4. Exit")
+    print("4. Delete Task")
+    print("5. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -52,6 +53,35 @@ while True:
                 print("Please enter a valid number!")
 
     elif choice == "4":
+        if len(tasks) == 0:
+            print("No tasks available.")
+        else:
+            for i in range(len(tasks)):
+                status = "Completed" if tasks[i]["completed"] else "Pending"
+                print(f"{i + 1}. {tasks[i]['title']} - {status}")
+
+            try:
+                task_id = int(input("Enter task number to delete: "))
+
+                if 1 <= task_id <= len(tasks):
+                    confirm = input(
+                        f"Delete '{tasks[task_id - 1]['title']}'? (y/n): "
+                    ).strip().lower()
+
+                    if confirm == "y":
+                        deleted_task = tasks.pop(task_id - 1)
+                        print(
+                            f"Task '{deleted_task['title']}' deleted successfully!"
+                        )
+                    else:
+                        print("Task deletion cancelled.")
+                else:
+                    print("Invalid task number!")
+
+            except ValueError:
+                print("Please enter a valid number!")
+
+    elif choice == "5":
         print("Goodbye!")
         break
 

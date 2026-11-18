@@ -20,7 +20,7 @@ class TestStudentTaskManager(unittest.TestCase):
 
     def test_add_task(self):
         output = self.run_app("1\nMath Assignment\n5\n")
-        self.assertIn("Wrong message", output)
+        self.assertIn("Task added successfully!", output)
 
     def test_complete_task(self):
         output = self.run_app("1\nMath Assignment\n3\n1\n5\n")

@@ -28,4 +28,8 @@ A simple Python console application for managing student tasks.
 
 Initial development.
 
+<<<<<<< HEAD
 Project status: In Progress
+=======
+Project status: Completed
+>>>>>>> conflict-second
